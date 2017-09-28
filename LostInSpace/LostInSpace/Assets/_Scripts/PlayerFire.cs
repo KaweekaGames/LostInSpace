@@ -12,7 +12,7 @@ public class PlayerFire : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
     {
-        if (Input.GetButtonUp("Fire1"))
+        if (Input.GetButtonDown("Fire1"))
         {
             foreach (GameObject obj in guns)
             {

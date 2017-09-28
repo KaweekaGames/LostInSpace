@@ -7,8 +7,17 @@ TagManager:
   - Enemy
   - Enemy_3
   - Bullet
-  - LargeRock
-  - MediumRock
+  - LargeRock2
+  - LargeRock3
+  - LargeRock4
+  - LargeRock5
+  - LargeRock1
+  - MediumRock1
+  - MediumRock2
+  - MediumRock3
+  - MediumRock4
+  - MediumRock5
+  - GameManager
   layers:
   - Default
   - TransparentFX

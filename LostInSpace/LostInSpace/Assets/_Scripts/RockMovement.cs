@@ -8,14 +8,9 @@ public class RockMovement : MonoBehaviour
     public float fallingSpeed;
     public bool clockwise;
     public Vector2 destination;
+	public int hitPoints;
 
-	// Use this for initialization
-	void Start ()
-    {
-		
-	}
-
-    // Update is called once per frame
+	// Update is called once per frame
     void Update()
     {
         transform.position = Vector2.MoveTowards(transform.position, destination, fallingSpeed * Time.deltaTime);

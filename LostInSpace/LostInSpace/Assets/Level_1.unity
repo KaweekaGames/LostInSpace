@@ -136,6 +136,83 @@ Transform:
   m_Father: {fileID: 408458239}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &294778230
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 294778231}
+  - component: {fileID: 294778232}
+  - component: {fileID: 294778233}
+  m_Layer: 0
+  m_Name: RockCollector (2)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &294778231
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 294778230}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 408458239}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!61 &294778232
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 294778230}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 125, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 250}
+  m_EdgeRadius: 0
+--- !u!114 &294778233
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 294778230}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7674f9eb2c5795a498682ef33e2ed237, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tags:
+  - LargeRock1
+  - LargeRock2
+  - LargeRock3
+  - LargeRock4
+  - LargeRock5
+  - MediumRock1
+  - MediumRock2
+  - MediumRock3
+  - MediumRock4
+  - MediumRock5
 --- !u!1 &408458232
 GameObject:
   m_ObjectHideFlags: 0
@@ -169,10 +246,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b9b1560baf061724f96a804e178ad7db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  forwardSpeed: 5
-  maxSpeed: 25
+  forwardSpeed: 4
+  maxSpeed: 22
   rotationSpeed: 75
-  slowDownTime: 2.5
+  slowDownTime: 3
 --- !u!66 &408458234
 CompositeCollider2D:
   m_ObjectHideFlags: 0
@@ -182,7 +259,7 @@ CompositeCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -308,6 +385,10 @@ Transform:
   - {fileID: 36419013}
   - {fileID: 557144904}
   - {fileID: 1331350368}
+  - {fileID: 1429576184}
+  - {fileID: 1851496170}
+  - {fileID: 294778231}
+  - {fileID: 1212644287}
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -459,6 +540,83 @@ MonoBehaviour:
   offsetX: 9
   offsetY: 6
   transitionSpeed: 5
+--- !u!1 &1212644286
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1212644287}
+  - component: {fileID: 1212644288}
+  - component: {fileID: 1212644289}
+  m_Layer: 0
+  m_Name: RockCollector (3)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &1212644287
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1212644286}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 408458239}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!61 &1212644288
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1212644286}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -125, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 250}
+  m_EdgeRadius: 0
+--- !u!114 &1212644289
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1212644286}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7674f9eb2c5795a498682ef33e2ed237, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tags:
+  - LargeRock1
+  - LargeRock2
+  - LargeRock3
+  - LargeRock4
+  - LargeRock5
+  - MediumRock1
+  - MediumRock2
+  - MediumRock3
+  - MediumRock4
+  - MediumRock5
 --- !u!1 &1331350367
 GameObject:
   m_ObjectHideFlags: 0
@@ -487,6 +645,83 @@ Transform:
   m_Father: {fileID: 408458239}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1429576182
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1429576184}
+  - component: {fileID: 1429576183}
+  - component: {fileID: 1429576185}
+  m_Layer: 0
+  m_Name: RockCollector
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!61 &1429576183
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1429576182}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 125}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 250, y: 1}
+  m_EdgeRadius: 0
+--- !u!4 &1429576184
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1429576182}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 408458239}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1429576185
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1429576182}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7674f9eb2c5795a498682ef33e2ed237, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tags:
+  - LargeRock1
+  - LargeRock2
+  - LargeRock3
+  - LargeRock4
+  - LargeRock5
+  - MediumRock1
+  - MediumRock2
+  - MediumRock3
+  - MediumRock4
+  - MediumRock5
 --- !u!1 &1756954379
 GameObject:
   m_ObjectHideFlags: 0
@@ -497,9 +732,10 @@ GameObject:
   - component: {fileID: 1756954381}
   - component: {fileID: 1756954380}
   - component: {fileID: 1756954382}
+  - component: {fileID: 1756954383}
   m_Layer: 0
   m_Name: GameManager
-  m_TagString: Untagged
+  m_TagString: GameManager
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -529,7 +765,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1756954382
 MonoBehaviour:
@@ -600,6 +836,98 @@ MonoBehaviour:
     amountToPool: 20
     expandable: 1
   pooledObjects: []
+--- !u!114 &1756954383
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1756954379}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6819b663e864c144587a6990dce5e170, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  totalNumberOfRocks: 100
+  spaceAwayMin: 50
+  spaceAwayMax: 75
+  rockQ: 0
+--- !u!1 &1851496169
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1851496170}
+  - component: {fileID: 1851496171}
+  - component: {fileID: 1851496172}
+  m_Layer: 0
+  m_Name: RockCollector (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &1851496170
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1851496169}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 408458239}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!61 &1851496171
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1851496169}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: -125}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 250, y: 1}
+  m_EdgeRadius: 0
+--- !u!114 &1851496172
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1851496169}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7674f9eb2c5795a498682ef33e2ed237, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tags:
+  - LargeRock1
+  - LargeRock2
+  - LargeRock3
+  - LargeRock4
+  - LargeRock5
+  - MediumRock1
+  - MediumRock2
+  - MediumRock3
+  - MediumRock4
+  - MediumRock5
 --- !u!1001 &2132540808
 Prefab:
   m_ObjectHideFlags: 0
@@ -613,7 +941,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4957793807588818, guid: 3c28f5300f0a89c4fbf5c247dc38d0e6, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 5.49
+      value: -2
       objectReference: {fileID: 0}
     - target: {fileID: 4957793807588818, guid: 3c28f5300f0a89c4fbf5c247dc38d0e6, type: 2}
       propertyPath: m_LocalPosition.z
@@ -637,7 +965,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4957793807588818, guid: 3c28f5300f0a89c4fbf5c247dc38d0e6, type: 2}
       propertyPath: m_RootOrder
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3c28f5300f0a89c4fbf5c247dc38d0e6, type: 2}
