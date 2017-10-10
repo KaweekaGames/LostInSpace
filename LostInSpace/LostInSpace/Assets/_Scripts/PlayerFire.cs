@@ -4,10 +4,11 @@ using UnityEngine;
 
 public class PlayerFire : MonoBehaviour {
 
-    public string tag;
+    public string objectTag;
     public List<GameObject> guns;
 
-    private float timer;
+    //private float timer;
+    //private int damageLevel = 2;
 
 	// Update is called once per frame
 	void Update ()
@@ -16,11 +17,16 @@ public class PlayerFire : MonoBehaviour {
         {
             foreach (GameObject obj in guns)
             {
-                GameObject bullet = ObjectPooler.SharedInstance.GetPooledObject(tag);
+                GameObject bullet = ObjectPooler.SharedInstance.GetPooledObject(objectTag);
                 bullet.transform.position = obj.transform.position;
                 bullet.transform.rotation = obj.transform.rotation;
                 bullet.SetActive(true); 
             }
         }
 	}
+
+    public void DisableGun(int gun)
+    {
+        guns[gun].SetActive(false);
+    }
 }

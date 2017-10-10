@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class SpawnChild : MonoBehaviour
 {
-    public string tag;
+    public string objectTag;
     public float spawnTimer;
     public bool canSpawn;
 
@@ -27,7 +27,7 @@ public class SpawnChild : MonoBehaviour
 
             if (countDown <= 0)
             {
-                GameObject child = ObjectPooler.SharedInstance.GetPooledObject(tag);
+                GameObject child = ObjectPooler.SharedInstance.GetPooledObject(objectTag);
                 if (child != null)
                 {
                     child.transform.position = transform.position;

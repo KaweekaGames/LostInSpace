@@ -10,7 +10,7 @@ public class RockSpawner : MonoBehaviour
     public int rockQ;
 
     private Transform playerTrans;
-	private string tag;
+	private string objectTag;
 	private float posOrNegX;
 	private float posOrNegY;
 	private float spaceAwayX;
@@ -62,46 +62,46 @@ public class RockSpawner : MonoBehaviour
 
 		if (number == 0) 
 		{
-			tag = "MediumRock1";
+			objectTag = "MediumRock1";
 		} 
 		else if (number == 1) 
 		{
-			tag = "MediumRock2";
+			objectTag = "MediumRock2";
 		}	
 		else if (number == 2) 
 		{
-			tag = "MediumRock3";
+			objectTag = "MediumRock3";
 		}
 		else if (number == 3) 
 		{
-			tag = "MediumRock4";
+			objectTag = "MediumRock4";
 		}
 		else if (number == 4) 
 		{
-			tag = "MediumRock5";
+			objectTag = "MediumRock5";
 		}
 		else if (number > 4 && number < 9) 
 		{
-			tag = "LargeRock1";
+			objectTag = "LargeRock1";
 		}
 		else if (number > 8 && number < 13) 
 		{
-			tag = "LargeRock2";
+			objectTag = "LargeRock2";
 		}
 		else if (number > 12 && number < 18) 
 		{
-			tag = "LargeRock3";
+			objectTag = "LargeRock3";
 		}
 		else if (number > 17 && number < 23) 
 		{
-			tag = "LargeRock4";
+			objectTag = "LargeRock4";
 		}
 		else if (number > 22) 
 		{
-			tag = "LargeRock5";
+			objectTag = "LargeRock5";
 		}
 
-		GameObject obj = ObjectPooler.SharedInstance.GetPooledObject(tag);
+		GameObject obj = ObjectPooler.SharedInstance.GetPooledObject(objectTag);
 		if(obj != null)
 		{
 			RockMovement rockMov = obj.GetComponent<RockMovement> ();

@@ -4,11 +4,19 @@ using UnityEngine;
 
 public class PlayerDamage : MonoBehaviour
 {
+    public int hitPoints = 3;
     public List<string> rockTags;
     public Shield shield;
+    public GameObject exploder;
 
+    private int health;
     private RockMovement rockMove;
     private EnemyMovement enemyMove;
+
+    void Awake()
+    {
+        health = hitPoints;
+    }
 
     void OnTriggerEnter2D(Collider2D collision)
     {
@@ -43,6 +51,25 @@ public class PlayerDamage : MonoBehaviour
 
     void TakeDamage(int damage)
     {
+        health -= damage;
 
+        if(health == 2)
+        {
+            print("loose first wing");
+        }
+        if (health == 1)
+        {
+            print("loose second wing");
+        }
+        if (health <= 0)
+        {
+            DestroyMe();
+        }
+    }
+
+    void DestroyMe()
+    {
+        GameObject explode = Instantiate(exploder, transform.position, transform.rotation);
+        gameObject.SetActive(false);
     }
 }

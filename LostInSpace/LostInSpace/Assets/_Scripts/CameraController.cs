@@ -18,7 +18,7 @@ public class CameraController : MonoBehaviour
     void Awake()
     {
 
-        Camera camera = gameObject.GetComponent<Camera>();
+        //Camera camera = gameObject.GetComponent<Camera>();
 
     }
 

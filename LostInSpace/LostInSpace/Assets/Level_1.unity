@@ -401,7 +401,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb2fcc2863fb31d48a0bcb7857c627de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tag: Bullet
+  objectTag: 
   guns:
   - {fileID: 36419012}
   - {fileID: 557144903}
@@ -417,6 +417,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 576889e7de2caff469667d098a76aeb5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hitPoints: 3
   rockTags:
   - LargeRock1
   - LargeRock2
@@ -429,6 +430,7 @@ MonoBehaviour:
   - MediumRock4
   - MediumRock5
   shield: {fileID: 2095015283}
+  exploder: {fileID: 1992611114045386, guid: 2b830d99992f98c4ea4fd8ce0ab2efb1, type: 2}
 --- !u!1 &557144903
 GameObject:
   m_ObjectHideFlags: 0
