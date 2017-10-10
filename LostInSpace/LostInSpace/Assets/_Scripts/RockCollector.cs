@@ -6,20 +6,14 @@ public class RockCollector : MonoBehaviour {
 
 	public List<string> tags;
 
-	private RockSpawner rockSpawner;
+	private RockMovement rockMove;
 
-	// Use this for initialization
-	void Start () 
-	{
-		rockSpawner = GameObject.FindObjectOfType<RockSpawner> ();
-	}
-	
 	void OnTriggerEnter2D(Collider2D collision)
 	{
 		if (tags.Contains (collision.gameObject.tag)) 
 		{
-			collision.gameObject.SetActive (false);
-			rockSpawner.rockQ--;
+			rockMove = collision.gameObject.GetComponent<RockMovement>();
+            rockMove.DestroyMe();
 		}
 	}
 }

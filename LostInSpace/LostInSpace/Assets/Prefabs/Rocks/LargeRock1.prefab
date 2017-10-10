@@ -21,10 +21,10 @@ GameObject:
   - component: {fileID: 4778318028279142}
   - component: {fileID: 212125436302766744}
   - component: {fileID: 68487341140251706}
-  - component: {fileID: 114805837672486660}
   - component: {fileID: 114800593224463346}
   - component: {fileID: 50147066682039604}
-  m_Layer: 0
+  - component: {fileID: 114546801416698506}
+  m_Layer: 9
   m_Name: LargeRock1
   m_TagString: LargeRock1
   m_Icon: {fileID: 0}
@@ -88,6 +88,19 @@ EdgeCollider2D:
   - {x: 0.37833378, y: 0.67003727}
   - {x: -0.5264541, y: 0.6701119}
   - {x: -0.73878384, y: 0.03280115}
+--- !u!114 &114546801416698506
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1181840851340588}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ec1e292533e42544a4daa768b252359, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hitPoints: 4
+  health: 4
 --- !u!114 &114800593224463346
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -103,23 +116,11 @@ MonoBehaviour:
   fallingSpeed: 0.5
   clockwise: 1
   destination: {x: 0, y: 0}
-  hitPoints: 0
---- !u!114 &114805837672486660
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1181840851340588}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c6e14bab4f90c0446b36364ec46c8b7b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  rotSpeed: 12
-  fallingSpeed: 0.6
-  clockwise: 0
-  destination: {x: 0, y: 0}
-  hitPoints: 0
+  debris1: {fileID: 1819589763491528, guid: e3562136732e9714a8886291fe77d45c, type: 2}
+  debris2: {fileID: 1202645807107486, guid: 2df1dcee57ef25a469bdf14c251f45d5, type: 2}
+  debris3: {fileID: 1489497970132388, guid: ee449f0e08fb84f42aa7b104c819a2e7, type: 2}
+  amountDebris: 20
+  maxOffset: 1.25
 --- !u!212 &212125436302766744
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -151,7 +152,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: e22bf67e699d55245ba665c3b995d30e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0

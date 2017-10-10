@@ -40,6 +40,7 @@ GameObject:
   - component: {fileID: 114644216006072192}
   - component: {fileID: 50189504221272948}
   - component: {fileID: 58603638707392854}
+  - component: {fileID: 114417969619792574}
   m_Layer: 0
   m_Name: Enemy_1
   m_TagString: Enemy
@@ -170,6 +171,19 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 1.29
+--- !u!114 &114417969619792574
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1070643642103328}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ec1e292533e42544a4daa768b252359, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hitPoints: 3
+  health: 0
 --- !u!114 &114644216006072192
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -242,6 +256,11 @@ MonoBehaviour:
   rotSpeed: 40
   speed: 3
   hasObstacle: 0
+  amountDebris: 1
+  debris1: {fileID: 1126144434266156, guid: 9ddd782639cd6b64c83bb0e565a6612d, type: 2}
+  debris2: {fileID: 1126144434266156, guid: 9ddd782639cd6b64c83bb0e565a6612d, type: 2}
+  debris3: {fileID: 1126144434266156, guid: 9ddd782639cd6b64c83bb0e565a6612d, type: 2}
+  exploder: {fileID: 1992611114045386, guid: 2b830d99992f98c4ea4fd8ce0ab2efb1, type: 2}
 --- !u!212 &212115882337548258
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -273,7 +292,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 2
+  m_SortingOrder: 3
   m_Sprite: {fileID: 21300002, guid: 3d51699155a8b9a4881a73b83cbbbc6d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -315,7 +334,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 2
   m_Sprite: {fileID: 21300002, guid: a8819f0f182de6444b6021e51cc0decc, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0

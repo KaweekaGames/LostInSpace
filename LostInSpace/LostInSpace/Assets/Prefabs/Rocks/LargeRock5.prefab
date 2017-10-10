@@ -23,7 +23,8 @@ GameObject:
   - component: {fileID: 68591290713933146}
   - component: {fileID: 114856131126719820}
   - component: {fileID: 50448524607618266}
-  m_Layer: 0
+  - component: {fileID: 114661005952629558}
+  m_Layer: 9
   m_Name: LargeRock5
   m_TagString: LargeRock5
   m_Icon: {fileID: 0}
@@ -86,6 +87,19 @@ EdgeCollider2D:
   - {x: 0.32949197, y: -0.6669809}
   - {x: 0.7062775, y: -0.009361148}
   - {x: 0.4535271, y: 0.4657166}
+--- !u!114 &114661005952629558
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1123034476200804}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ec1e292533e42544a4daa768b252359, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hitPoints: 4
+  health: 4
 --- !u!114 &114856131126719820
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -101,7 +115,11 @@ MonoBehaviour:
   fallingSpeed: 0.6
   clockwise: 0
   destination: {x: 0, y: 0}
-  hitPoints: 0
+  debris1: {fileID: 1819589763491528, guid: e3562136732e9714a8886291fe77d45c, type: 2}
+  debris2: {fileID: 1202645807107486, guid: 2df1dcee57ef25a469bdf14c251f45d5, type: 2}
+  debris3: {fileID: 1177111263416932, guid: f267396c7446e2745a2863202682b424, type: 2}
+  amountDebris: 20
+  maxOffset: 1.25
 --- !u!212 &212576213435887916
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -133,7 +151,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300046, guid: e22bf67e699d55245ba665c3b995d30e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0

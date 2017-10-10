@@ -8,12 +8,11 @@ public class PlayerMovement : MonoBehaviour {
     public float maxSpeed;
     public float rotationSpeed;
     public float slowDownTime;
-	public RockSpawner rockSpawner;
-
+   
     private float speed = 0;
-
-	// Update is called once per frame
-	void Update ()
+    
+    // Update is called once per frame
+    void Update ()
     {
         //Rotation control
         float zRotation = Input.GetAxisRaw("Horizontal");
@@ -36,8 +35,8 @@ public class PlayerMovement : MonoBehaviour {
         transform.Translate(0, speed * Time.deltaTime, 0);
     }
 
-	void OnTriggerEnter2D(Collider2D collision)
-	{
-		if(collision.gameObject.tag == 
-	}
+    public float GetSpeed()
+    {
+        return speed;
+    }
 }

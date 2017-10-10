@@ -23,7 +23,8 @@ GameObject:
   - component: {fileID: 68356312213200558}
   - component: {fileID: 114143997917476006}
   - component: {fileID: 50893036536017270}
-  m_Layer: 0
+  - component: {fileID: 114657041101698782}
+  m_Layer: 9
   m_Name: LargeRock3
   m_TagString: LargeRock3
   m_Icon: {fileID: 0}
@@ -100,7 +101,24 @@ MonoBehaviour:
   fallingSpeed: 0.6
   clockwise: 0
   destination: {x: 0, y: 0}
-  hitPoints: 0
+  debris1: {fileID: 1819589763491528, guid: e3562136732e9714a8886291fe77d45c, type: 2}
+  debris2: {fileID: 1202645807107486, guid: 2df1dcee57ef25a469bdf14c251f45d5, type: 2}
+  debris3: {fileID: 1489497970132388, guid: ee449f0e08fb84f42aa7b104c819a2e7, type: 2}
+  amountDebris: 20
+  maxOffset: 1.25
+--- !u!114 &114657041101698782
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1167900488692302}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ec1e292533e42544a4daa768b252359, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hitPoints: 4
+  health: 4
 --- !u!212 &212370064013688814
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -132,7 +150,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300074, guid: e22bf67e699d55245ba665c3b995d30e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0

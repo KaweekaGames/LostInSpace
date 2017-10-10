@@ -18,6 +18,7 @@ TagManager:
   - MediumRock4
   - MediumRock5
   - GameManager
+  - PowerUp
   layers:
   - Default
   - TransparentFX

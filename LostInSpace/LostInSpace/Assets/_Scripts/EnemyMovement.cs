@@ -7,16 +7,23 @@ public class EnemyMovement : MonoBehaviour
     public float rotSpeed;
     public float speed;
     public bool hasObstacle;
+    public int amountDebris;
+    public GameObject debris1;
+    public GameObject debris2;
+    public GameObject debris3;
+    public GameObject exploder;
 
     private GameObject player;
     private Vector2 playerPosition;
     private Transform obstacleTrans;
     private Vector2 obstaclePosition;
+    private DamageManager damageMan;
 
 	// Use this for initialization
 	void Start ()
     {
         player = GameObject.FindGameObjectWithTag("Player");
+        damageMan = GetComponent<DamageManager>();
 	}
 
     // Update is called once per frame
@@ -55,6 +62,11 @@ public class EnemyMovement : MonoBehaviour
         if (obstacleTrans) hasObstacle = true;
         else hasObstacle = false;
 
+        if(damageMan.health < 1)
+        {
+            DestroyMe();
+        }
+
     }
 
     public void AddObstacle(GameObject newObstacle)
@@ -71,5 +83,40 @@ public class EnemyMovement : MonoBehaviour
         {
             obstacleTrans = null;
         }
+    }
+
+    public void DestroyMe()
+    {
+        for (int i = 0; i < amountDebris; i++)
+        {
+            if (i == 0)
+            {
+                GameObject debris = Instantiate(exploder);
+                debris.transform.position = transform.position; ;
+            }
+
+            if (i > 0 && i < amountDebris/4)
+            {
+                GameObject debris = Instantiate(debris2);
+                debris.transform.position = transform.position;
+                debris.transform.Rotate(0, 0, Random.Range(0, 360));
+            }
+
+            if (i > amountDebris/4 && i < amountDebris / 2)
+            {
+                GameObject debris = Instantiate(debris2);
+                debris.transform.position = transform.position;
+                debris.transform.Rotate(0, 0, Random.Range(0, 360));
+            }
+
+            else
+            {
+                GameObject debris = Instantiate(debris3);
+                debris.transform.position = transform.position;
+                debris.transform.Rotate(0, 0, Random.Range(0, 360));
+            }
+        }
+
+        gameObject.SetActive(false);
     }
 }
