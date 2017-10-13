@@ -19,6 +19,8 @@ TagManager:
   - MediumRock5
   - GameManager
   - PowerUp
+  - EnemyBullet
+  - Jump
   layers:
   - Default
   - TransparentFX

@@ -6,13 +6,11 @@ public class EnemyFire : MonoBehaviour
 {
     public float range;
     public LayerMask mask;
+    public float bulletTimer;
+    public string objectTag;
 
-	// Use this for initialization
-	void Start ()
-    {
+    private float countDown;
 
-	}
-	
 	// Update is called once per frame
 	void Update ()
     {
@@ -22,7 +20,17 @@ public class EnemyFire : MonoBehaviour
         if (hit2D)
         {
             Debug.DrawLine(transform.position, hit2D.point, Color.red);
+            if (countDown <= 0)
+            {
+                GameObject bullet = ObjectPooler.SharedInstance.GetPooledObject(objectTag);
+                bullet.transform.position = transform.position;
+                bullet.transform.rotation = transform.rotation;
+                bullet.SetActive(true);
+
+                countDown = bulletTimer;
+            }
         }
-        else Debug.DrawLine(transform.position, transform.position + transform.up * range, Color.green);
+
+        countDown -= Time.deltaTime;
     }
 }

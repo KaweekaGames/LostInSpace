@@ -8,8 +8,10 @@ public class PlayerMovement : MonoBehaviour {
     public float maxSpeed;
     public float rotationSpeed;
     public float slowDownTime;
+    public SpriteRenderer thrustSprite;
    
     private float speed = 0;
+    private float thrustTimer = 0;
     
     // Update is called once per frame
     void Update ()
@@ -25,6 +27,7 @@ public class PlayerMovement : MonoBehaviour {
         if (Input.GetButtonDown("Forward"))
         {
             speed += forwardSpeed;
+            thrustTimer = .5f;
             
         }
 
@@ -33,6 +36,13 @@ public class PlayerMovement : MonoBehaviour {
         speed = Mathf.Clamp(speed, 0, maxSpeed);
 
         transform.Translate(0, speed * Time.deltaTime, 0);
+
+        if (thrustTimer > 0)
+        {
+            thrustSprite.enabled = true;
+            thrustTimer -= Time.deltaTime;
+        }
+        else thrustSprite.enabled = false;
     }
 
     public float GetSpeed()

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Shield : MonoBehaviour
 {
@@ -8,6 +9,7 @@ public class Shield : MonoBehaviour
     public SpriteRenderer spriteRend;
     public CircleCollider2D circleColl;
     public bool shieldEnabled;
+    public Slider shieldSlider;
 
     private float timer = 0;
     private bool flashing;
@@ -19,9 +21,13 @@ public class Shield : MonoBehaviour
         spriteRend.enabled = false;
         shieldStrength = shieldStrengthMax;
 	}
-	
-	// Update is called once per frame
-	void Update ()
+
+    void Start()
+    {
+        shieldSlider.maxValue = shieldStrengthMax;
+    }
+    // Update is called once per frame
+    void Update ()
     {
         if (timer > 0 && flashing == false)
         {
@@ -74,6 +80,8 @@ public class Shield : MonoBehaviour
         {
             circleColl.enabled = false;
         }
+
+        shieldSlider.value = shieldStrength;
 	}
 
     public void DrainShield(int hit)

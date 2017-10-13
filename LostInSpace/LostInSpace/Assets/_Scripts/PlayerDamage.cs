@@ -41,6 +41,11 @@ public class PlayerDamage : MonoBehaviour
                 enemyMove = collision.gameObject.GetComponent<EnemyMovement>();
                 enemyMove.DestroyMe();
             }
+
+            if(collision.tag == "EnemyBullet")
+            {
+                collision.gameObject.SetActive(false);
+            }
         }
 
         if (collision.tag == "PowerUp")
