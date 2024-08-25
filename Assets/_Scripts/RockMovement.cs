@@ -21,6 +21,7 @@ public class RockMovement : MonoBehaviour
     {
         rockSpawn = FindObjectOfType<RockSpawner>();
         damageMan = gameObject.GetComponent<DamageManager>();
+        rotSpeed = rotSpeed * Random.value;
     }
 
     // Update is called once per frame

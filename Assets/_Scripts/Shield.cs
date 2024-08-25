@@ -5,15 +5,16 @@ using UnityEngine.UI;
 
 public class Shield : MonoBehaviour
 {
-    public int shieldStrengthMax;
+    public float shieldStrengthMax;
     public SpriteRenderer spriteRend;
     public CircleCollider2D circleColl;
     public bool shieldEnabled;
+    public float shieldRecoverSpeed;
     public Slider shieldSlider;
 
     private float timer = 0;
-    private bool flashing;
-    private int shieldStrength;
+    private bool flashing = false;
+    private float shieldStrength;
 
     // Use this for initialization
     void Awake ()
@@ -29,6 +30,8 @@ public class Shield : MonoBehaviour
     // Update is called once per frame
     void Update ()
     {
+        PowerShield();
+        
         if (timer > 0 && flashing == false)
         {
             timer -= Time.deltaTime;
@@ -107,9 +110,9 @@ public class Shield : MonoBehaviour
 
     public void PowerShield()
     {
-        if (shieldStrength < shieldStrengthMax)
+        if (shieldStrength < shieldStrengthMax && shieldEnabled)
         {
-            shieldStrength += 1; 
+            shieldStrength += Time.deltaTime * shieldRecoverSpeed; 
         }
     }
 }

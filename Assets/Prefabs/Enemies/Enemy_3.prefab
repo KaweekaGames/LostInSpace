@@ -213,6 +213,7 @@ MonoBehaviour:
   - MediumRock3
   - MediumRock4
   - MediumRock5
+  attackDistance: 20
 --- !u!50 &50435378363781912
 Rigidbody2D:
   serializedVersion: 4

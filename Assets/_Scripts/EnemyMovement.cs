@@ -14,23 +14,27 @@ public class EnemyMovement : MonoBehaviour
     public GameObject debris3;
     public GameObject exploder;
     public List<string> rockTags;
+    public float attackDistance;
 
     private GameObject player;
     private Vector2 playerPosition;
     private Transform obstacleTrans;
     private Vector2 obstaclePosition;
     private DamageManager damageMan;
+    private float distanceFromPlayer;
+    private bool playerInRange = false;
 
-	// Use this for initialization
-	void Start ()
+    // Use this for initialization
+    void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
         damageMan = GetComponent<DamageManager>();
-	}
+    }
 
     // Update is called once per frame
     void Update()
     {
+        PlayerRangeCheck();
 
         //If present, move away from obstacle
         if (obstacleTrans != null)
@@ -44,9 +48,9 @@ public class EnemyMovement : MonoBehaviour
             Quaternion desRotation = Quaternion.Euler(0f, 0f, zAngle);
             transform.rotation = Quaternion.RotateTowards(transform.rotation, desRotation, rotSpeed * Time.deltaTime);
         }
-        
+
         //Find player and rotate toward it if no obtacles are in the way
-        if (player != null && !obstacleTrans)
+        if (playerInRange && !obstacleTrans)
         {
             playerPosition = player.transform.position;
             Vector2 direc = new Vector2(playerPosition.x - transform.position.x, playerPosition.y - transform.position.y);
@@ -64,7 +68,7 @@ public class EnemyMovement : MonoBehaviour
         if (obstacleTrans) hasObstacle = true;
         else hasObstacle = false;
 
-        if(damageMan.health < 1)
+        if (damageMan.health < 1)
         {
             DestroyMe();
         }
@@ -97,14 +101,14 @@ public class EnemyMovement : MonoBehaviour
                 debris.transform.position = transform.position; ;
             }
 
-            if (i > 0 && i < amountDebris/4)
+            if (i > 0 && i < amountDebris / 4)
             {
                 GameObject debris = Instantiate(debris2);
                 debris.transform.position = transform.position;
                 debris.transform.Rotate(0, 0, Random.Range(0, 360));
             }
 
-            if (i > amountDebris/4 && i < amountDebris / 2)
+            if (i > amountDebris / 4 && i < amountDebris / 2)
             {
                 GameObject debris = Instantiate(debris2);
                 debris.transform.position = transform.position;
@@ -128,7 +132,7 @@ public class EnemyMovement : MonoBehaviour
 
         if (collisionDamageMan != null && collision.gameObject.tag != "Enemy")
         {
-            
+
             if (rockTags.Contains(collision.gameObject.tag))
             {
                 RockMovement rockMove = collision.gameObject.GetComponent<RockMovement>();
@@ -137,5 +141,19 @@ public class EnemyMovement : MonoBehaviour
 
             DestroyMe();
         }
+    }
+
+    private void PlayerRangeCheck()
+    {
+        if (player != null)
+        {
+            distanceFromPlayer = Mathf.Abs(player.transform.position.magnitude - transform.position.magnitude);
+
+            if (distanceFromPlayer < attackDistance)
+            {
+                playerInRange = true;
+            }
+            else playerInRange = false;
+        }      
     }
 }
