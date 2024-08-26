@@ -171,7 +171,7 @@ MonoBehaviour:
   - MediumRock3
   - MediumRock4
   - MediumRock5
-  attackDistance: 20
+  attackDistance: 30
 --- !u!114 &114644216006072192
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -9,15 +9,19 @@ public class PlayerFire : MonoBehaviour {
     public List<GameObject> guns;
     public float heatCapacity;
     public Slider heatSlider;
+    public GameInput gameInput;
+    public float fireTime = .5f;
 
     private float heatBuildUp = 0;
+    private float fireTimeTimer = 0;
 
 	// Update is called once per frame
 	void Update ()
     {
-        if (Input.GetButtonDown("Fire1") && heatBuildUp < heatCapacity)
+        if (gameInput.GetFirePressed() > 0 && heatBuildUp < heatCapacity && fireTimeTimer <= 0)
         {
-            
+            fireTimeTimer = fireTime;
+
             foreach (GameObject obj in guns)
             {
                 GameObject bullet = ObjectPooler.SharedInstance.GetPooledObject(objectTag);
@@ -35,6 +39,11 @@ public class PlayerFire : MonoBehaviour {
         }
 
         heatSlider.value = Mathf.Lerp(heatSlider.value, Mathf.Clamp(heatBuildUp / heatCapacity, 0, 1), .07f);
+
+        if (fireTimeTimer > 0) 
+        {
+            fireTimeTimer -= Time.deltaTime;
+        }
 
 	}
 

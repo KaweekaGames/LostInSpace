@@ -7,18 +7,26 @@ public class CameraController : MonoBehaviour
     public float offsetX;
     public float offsetY;
     public float transitionSpeed;
+    public float speedThreshold;
+    public float zoomOut;
+    public float zoomOutSpeed;
 
     private GameObject player;
     private Transform playerTrans;
     private float newX;
     private float newY;
     private Vector3 newPos;
+    private float originalCameraSize;
+    private float currentCameraSize;
+    private Camera camera;
 
     /// Use this for initialization
     void Awake()
     {
 
-        //Camera camera = gameObject.GetComponent<Camera>();
+        camera = gameObject.GetComponent<Camera>();
+        originalCameraSize = camera.orthographicSize;
+        currentCameraSize = originalCameraSize;
 
     }
 
@@ -31,7 +39,7 @@ public class CameraController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        //Keep player relative Y direction favored by camera
         if (player != null)
         {
             Vector3 playerPos = playerTrans.position;
@@ -66,7 +74,14 @@ public class CameraController : MonoBehaviour
                 newPos = new Vector3(Mathf.Lerp(oldPos.x, playerPos.x + newX, Time.deltaTime * transitionSpeed), Mathf.Lerp(oldPos.y, playerPos.y + newY, Time.deltaTime * transitionSpeed), oldPos.z);
             }
 
+            if (player.GetComponent<PlayerMovement>().GetSpeed() > speedThreshold && currentCameraSize < originalCameraSize + zoomOut) 
+            {
+                currentCameraSize = Mathf.Lerp(currentCameraSize, originalCameraSize + zoomOut, Time.deltaTime * zoomOutSpeed);
+            } else currentCameraSize = Mathf.Lerp(currentCameraSize, originalCameraSize, Time.deltaTime * zoomOutSpeed);
+
             transform.position = newPos;
+            camera.orthographicSize = currentCameraSize;
+
         }
     }
 }

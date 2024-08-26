@@ -130,16 +130,22 @@ public class EnemyMovement : MonoBehaviour
     {
         DamageManager collisionDamageMan = collision.gameObject.GetComponent<DamageManager>();
 
+        Debug.Log("collision");
+
         if (collisionDamageMan != null && collision.gameObject.tag != "Enemy")
         {
-
+            Debug.Log("check for rock");
             if (rockTags.Contains(collision.gameObject.tag))
             {
                 RockMovement rockMove = collision.gameObject.GetComponent<RockMovement>();
                 rockMove.DestroyMe();
+                Debug.Log("destroyrock");
             }
 
-            DestroyMe();
+            if (collisionDamageMan.health > damageMan.health)
+            {
+                DestroyMe();
+            }else damageMan.Damage(collisionDamageMan.health);
         }
     }
 

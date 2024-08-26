@@ -257,7 +257,7 @@ MonoBehaviour:
   debris3: {fileID: 0}
   exploder: {fileID: 0}
   rockTags: []
-  attackDistance: 20
+  attackDistance: 30
 --- !u!114 &114585276344363710
 MonoBehaviour:
   m_ObjectHideFlags: 0

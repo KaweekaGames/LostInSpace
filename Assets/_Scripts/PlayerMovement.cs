@@ -10,22 +10,23 @@ public class PlayerMovement : MonoBehaviour {
     public float rotationSpeed;
     public float slowDownTime;
     public SpriteRenderer thrustSprite;
-   
+    public GameInput gameInput;
+
     private float speed = 0;
     private float thrustTimer = 0;
 
     // Update is called once per frame
     void Update ()
     {
-        //Rotation control
-        float zRotation = Input.GetAxisRaw("Horizontal");
+        //Rotation Control
+        float zRotation = gameInput.GetRotation();
 
         zRotation = -zRotation;
 
         transform.Rotate(0, 0, zRotation * rotationSpeed * Time.deltaTime);
 
         //Forward movement control
-        if (Input.GetButtonDown("Jump"))
+        if (gameInput.GetJumpPressed() > 0)
         {
             speed += forwardSpeed;
             thrustTimer = .5f;
