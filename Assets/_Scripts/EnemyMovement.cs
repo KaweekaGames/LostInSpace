@@ -15,20 +15,30 @@ public class EnemyMovement : MonoBehaviour
     public GameObject exploder;
     public List<string> rockTags;
     public float attackDistance;
+    public bool hasStartingLocation = false;
 
     private GameObject player;
     private Vector2 playerPosition;
+    private Vector2 startingPosition;
     private Transform obstacleTrans;
     private Vector2 obstaclePosition;
     private DamageManager damageMan;
     private float distanceFromPlayer;
     private bool playerInRange = false;
+    private WayPoint waypoint;
 
     // Use this for initialization
     void Start()
     {
+        waypoint = (WayPoint)FindAnyObjectByType(typeof(WayPoint));
+        
         player = GameObject.FindGameObjectWithTag("Player");
         damageMan = GetComponent<DamageManager>();
+        if (hasStartingLocation) 
+        {
+            startingPosition = waypoint.GetStartingWaypoint();
+            transform.position = startingPosition;
+        }
     }
 
     // Update is called once per frame
@@ -130,16 +140,13 @@ public class EnemyMovement : MonoBehaviour
     {
         DamageManager collisionDamageMan = collision.gameObject.GetComponent<DamageManager>();
 
-        Debug.Log("collision");
 
         if (collisionDamageMan != null && collision.gameObject.tag != "Enemy")
         {
-            Debug.Log("check for rock");
             if (rockTags.Contains(collision.gameObject.tag))
             {
                 RockMovement rockMove = collision.gameObject.GetComponent<RockMovement>();
                 rockMove.DestroyMe();
-                Debug.Log("destroyrock");
             }
 
             if (collisionDamageMan.health > damageMan.health)

@@ -1,15 +1,19 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerDamage : MonoBehaviour
 {
-    public int hitPoints = 3;
+    public int hitPoints = 40;
     public List<string> rockTags;
     public Shield shield;
     public GameObject exploder;
+    public PlayerFire playerFire;
+    public PlayerMovement playerMovement;
 
     private int health;
+    private int damage;
     private RockMovement rockMove;
     private EnemyMovement enemyMove;
 
@@ -21,14 +25,25 @@ public class PlayerDamage : MonoBehaviour
     void OnTriggerEnter2D(Collider2D collision)
     {
         DamageManager damageMan = collision.gameObject.GetComponent<DamageManager>();
-
+        
         if (damageMan != null)
         {
+            damage = damageMan.hitPoints;
+
             if (shield.shieldEnabled)
             {
-                shield.DrainShield(damageMan.hitPoints);
+                if (shield.GetShieldStrength() > damage)
+                {
+                    shield.DrainShield(damageMan.hitPoints);
+                }
+                else 
+                {
+                    damage -= (int)shield.GetShieldStrength();
+                    shield.DrainShield((int)shield.GetShieldStrength() + 1);
+                    TakeDamage(damage);
+                }
             }
-            else TakeDamage(damageMan.hitPoints);
+            else TakeDamage(damage);
 
             if (rockTags.Contains(collision.gameObject.tag))
             {
@@ -48,24 +63,43 @@ public class PlayerDamage : MonoBehaviour
             }
         }
 
-        if (collision.tag == "PowerUp")
-        {
-            shield.PowerShield();
-        }
     }
 
     void TakeDamage(int damage)
     {
         health -= damage;
 
-        if(health == 2)
+        if (health <= .85 * hitPoints)
         {
-            print("loose first wing");
+            print("damage shields");
+            shield.EnableDamageState();
         }
-        if (health == 1)
+        else if (health <= .7 * hitPoints)
         {
-            print("loose second wing");
+            print("damage guns");
+            playerFire.EnableDamageState();
         }
+        else if (health <= .55 * hitPoints)
+        {
+            print("damage drive");
+            playerMovement.EnableDamageState();
+        }
+        else if (health <= .4 * hitPoints)
+        {
+            print("disable shields");
+            shield.enabled = false;
+        }
+        else if (health <= .25 * hitPoints)
+        {
+            print("disable wing gun 1");
+            playerFire.DisableGun(1);
+        }
+        else if (health <= .1 * hitPoints)
+        {
+            print("disable wing gun 2");
+            playerFire.DisableGun(1);
+        }
+        
         if (health <= 0)
         {
             DestroyMe();

@@ -309,6 +309,8 @@ MonoBehaviour:
   exploder: {fileID: 1992611114045386, guid: 2b830d99992f98c4ea4fd8ce0ab2efb1, type: 3}
   rockTags: []
   attackDistance: 30
+  waypoint: {fileID: 0}
+  hasStartingLocation: 1
 --- !u!114 &114083844658503658
 MonoBehaviour:
   m_ObjectHideFlags: 0

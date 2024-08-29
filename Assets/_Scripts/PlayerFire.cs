@@ -11,6 +11,7 @@ public class PlayerFire : MonoBehaviour {
     public Slider heatSlider;
     public GameInput gameInput;
     public float fireTime = .5f;
+    public float damageReductionRate = .5f;
 
     private float heatBuildUp = 0;
     private float fireTimeTimer = 0;
@@ -49,6 +50,11 @@ public class PlayerFire : MonoBehaviour {
 
     public void DisableGun(int gun)
     {
-        guns[gun].SetActive(false);
+       guns.RemoveAt(gun);
+    }
+
+    public void EnableDamageState()
+    {
+        heatCapacity = heatCapacity * damageReductionRate;
     }
 }

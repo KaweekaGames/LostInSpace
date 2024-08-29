@@ -7,13 +7,22 @@ public class PlayerMovement : MonoBehaviour {
     public float forwardSpeed;
     public float brakeForce;
     public float maxSpeed;
+    public float damageStateReductionRate = .5f;
     public float rotationSpeed;
     public float slowDownTime;
     public SpriteRenderer thrustSprite;
     public GameInput gameInput;
+    public WayPoint waypoint;
 
     private float speed = 0;
     private float thrustTimer = 0;
+    private Vector2 startingPositon;
+
+    private void Start()
+    {
+        startingPositon = waypoint.GetStartingWaypoint();
+        transform.position = startingPositon;
+    }
 
     // Update is called once per frame
     void Update ()
@@ -50,5 +59,10 @@ public class PlayerMovement : MonoBehaviour {
     public float GetSpeed()
     {
         return speed;
+    }
+
+    public void EnableDamageState()
+    {
+        maxSpeed = maxSpeed * damageStateReductionRate;
     }
 }
