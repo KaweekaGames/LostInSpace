@@ -27,16 +27,16 @@ public class RockMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.position = Vector2.MoveTowards(transform.position, destination, fallingSpeed * Time.deltaTime);
+        //transform.position = Vector2.MoveTowards(transform.position, destination, fallingSpeed * Time.deltaTime);
 
-        if (clockwise)
-        {
-            transform.Rotate(0, 0, 1 * rotSpeed * Time.deltaTime);
-        }
-        else
-        {
-            transform.Rotate(0, 0, -1 * rotSpeed * Time.deltaTime);
-        }
+        //if (clockwise)
+        //{
+        //    transform.Rotate(0, 0, 1 * rotSpeed * Time.deltaTime);
+        //}
+        //else
+        //{
+        //    transform.Rotate(0, 0, -1 * rotSpeed * Time.deltaTime);
+        //}
 
         if(damageMan.health <= 0)
         {

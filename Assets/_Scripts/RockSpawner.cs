@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class RockSpawner : MonoBehaviour
@@ -8,6 +9,9 @@ public class RockSpawner : MonoBehaviour
     public float spaceAwayMin;
 	public float spaceAwayMax;
     public int rockQ;
+	[SerializeField] private GameObject[] superRocks;
+    [SerializeField] private WayPoint waypoint;
+	[SerializeField] private int numberOfSuperRocks;
 
     private Transform playerTrans;
 	private string objectTag;
@@ -25,6 +29,11 @@ public class RockSpawner : MonoBehaviour
         playerTrans = GameObject.FindGameObjectWithTag("Player").transform;
 		rockQ = 0;
 		alternate = 1;
+
+		for (int i = 0; i < numberOfSuperRocks; i++)
+		{
+            SpawnSuperRock();
+        } 
 	}
 	
 	// Update is called once per frame
@@ -112,5 +121,13 @@ public class RockSpawner : MonoBehaviour
 
 			alternate = alternate * -1;
 		}
+    }
+
+    private void SpawnSuperRock()
+    {
+        int random = Random.Range(0, superRocks.Length);
+		Vector2 startingPostion = waypoint.GetStartingWaypoint();
+        GameObject newRock = Instantiate(superRocks[random]);
+        newRock.transform.position = startingPostion;
     }
 }

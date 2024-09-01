@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 669569669815536932}
   - component: {fileID: 4025409685946613999}
   - component: {fileID: 8756858547779501133}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Probe Visual
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -116,8 +116,10 @@ GameObject:
   m_Component:
   - component: {fileID: 7604085317827700717}
   - component: {fileID: 8343944330489464707}
-  - component: {fileID: 1387551776450552887}
-  m_Layer: 0
+  - component: {fileID: 7374748304002324601}
+  - component: {fileID: 1440470383283073312}
+  - component: {fileID: 5236383050120355314}
+  m_Layer: 3
   m_Name: Probe
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -156,8 +158,54 @@ MonoBehaviour:
   animator: {fileID: 8756858547779501133}
   sensorRange: 15
   tripTime: 10
---- !u!60 &1387551776450552887
-PolygonCollider2D:
+  amountDebris: 10
+  debris1: {fileID: 3543420043823895458, guid: fc136b9d06fa17c4facb7296a859b2ed, type: 3}
+  debris2: {fileID: 3543420043823895458, guid: fc136b9d06fa17c4facb7296a859b2ed, type: 3}
+  debris3: {fileID: 1177111263416932, guid: f267396c7446e2745a2863202682b424, type: 3}
+  exploder: {fileID: 1992611114045386, guid: 2b830d99992f98c4ea4fd8ce0ab2efb1, type: 3}
+--- !u!114 &7374748304002324601
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7713914838257288486}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ec1e292533e42544a4daa768b252359, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hitPoints: 5
+  health: 5
+--- !u!50 &1440470383283073312
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7713914838257288486}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
+--- !u!58 &5236383050120355314
+CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -188,53 +236,6 @@ PolygonCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  m_Points:
-    m_Paths:
-    - - {x: 0.58125305, y: 0.9750824}
-      - {x: 0.27397156, y: 1.9985962}
-      - {x: 0.95988464, y: 2.3914032}
-      - {x: 0.9129791, y: 2.7419739}
-      - {x: 0.035568237, y: 2.3436737}
-      - {x: -0.9069214, y: 2.713066}
-      - {x: -0.9660034, y: 2.340561}
-      - {x: -0.32461548, y: 1.9667664}
-      - {x: -0.7016754, y: 0.9307327}
-      - {x: -1.0237427, y: 0.6689987}
-      - {x: -1.9899445, y: 0.36141205}
-      - {x: -2.3435364, y: 0.9667511}
-      - {x: -2.7227478, y: 0.8999634}
-      - {x: -2.3470154, y: 0.06330109}
-      - {x: -2.6735687, y: -0.9505844}
-      - {x: -2.3196716, y: -0.91908264}
-      - {x: -1.9826355, y: -0.3351593}
-      - {x: -1.5354614, y: -0.48394012}
-      - {x: -1.0027771, y: -0.6640625}
-      - {x: -0.7131195, y: -1.0340576}
-      - {x: -0.4175415, y: -2.0222244}
-      - {x: -0.9523468, y: -2.3518524}
-      - {x: -0.93307495, y: -2.7514877}
-      - {x: -0.014602661, y: -2.3693237}
-      - {x: 0.9030847, y: -2.734196}
-      - {x: 0.957489, y: -2.3307648}
-      - {x: 0.26530457, y: -1.974266}
-      - {x: 0.6260071, y: -0.9943924}
-      - {x: 0.8968353, y: -0.6646881}
-      - {x: 2.0140533, y: -0.30510712}
-      - {x: 2.3215332, y: -0.9319458}
-      - {x: 2.7678056, y: -0.98031986}
-      - {x: 2.3940125, y: 0.0018539429}
-      - {x: 2.70392, y: 0.8838999}
-      - {x: 2.3420868, y: 0.9641266}
-      - {x: 1.9483185, y: 0.290596}
-      - {x: 0.9208288, y: 0.65163034}
-  m_UseDelaunayMesh: 0
+  m_Offset: {x: 0, y: -0.020096779}
+  serializedVersion: 2
+  m_Radius: 2.2886028

@@ -25,9 +25,16 @@ public class GameInput : MonoBehaviour
         return rotationValue;
     }
 
-    public float GetJumpPressed()
+    public float GetMovement()
     {
-        float jumpPressed = playerInput.Player.Jump.ReadValue<float>();
-        return jumpPressed;
+        Vector2 movement = playerInput.Player.Movement.ReadValue<Vector2>();
+        float reverseValue = movement.y;
+        return reverseValue;
     }
+
+    //public float GetJumpPressed()
+    //{
+    //    float jumpPressed = playerInput.Player.Jump.ReadValue<float>();
+    //    return jumpPressed;
+    //}
 }

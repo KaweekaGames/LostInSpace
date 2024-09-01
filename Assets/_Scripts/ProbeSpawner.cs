@@ -19,7 +19,7 @@ public class ProbeSpawner : MonoBehaviour
 
     private void SpawnProbe()
     {
-        Vector2 startingPostion = waypoint.GetStartingWaypoint();
+        Vector2 startingPostion = waypoint.GetNextWaypiont();
         GameObject newProbe = Instantiate(probe);
         newProbe.transform.position = startingPostion;
     }

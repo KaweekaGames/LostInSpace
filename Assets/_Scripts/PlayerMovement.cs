@@ -5,8 +5,10 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour {
 
     public float forwardSpeed;
+    public float reverseSpeed;
     public float brakeForce;
-    public float maxSpeed;
+    public float maxForwardSpeed;
+    public float maxReverseSpeed;
     public float damageStateReductionRate = .5f;
     public float rotationSpeed;
     public float slowDownTime;
@@ -20,8 +22,8 @@ public class PlayerMovement : MonoBehaviour {
 
     private void Start()
     {
-        startingPositon = waypoint.GetStartingWaypoint();
-        transform.position = startingPositon;
+        //startingPositon = waypoint.GetStartingWaypoint();
+        //transform.position = startingPositon;
     }
 
     // Update is called once per frame
@@ -35,16 +37,32 @@ public class PlayerMovement : MonoBehaviour {
         transform.Rotate(0, 0, zRotation * rotationSpeed * Time.deltaTime);
 
         //Forward movement control
-        if (gameInput.GetJumpPressed() > 0)
+        if (gameInput.GetMovement() > 0)
         {
             speed += forwardSpeed;
             thrustTimer = .5f;
-            
+            speed = Mathf.Clamp(speed, maxReverseSpeed, maxForwardSpeed);
+        }
+        else if (gameInput.GetMovement() < 0)
+        {
+            if (speed > maxReverseSpeed)
+            {
+                speed -= reverseSpeed;
+                speed = Mathf.Clamp(speed, maxReverseSpeed, maxForwardSpeed);
+            }
+        }
+        else if (speed > 0)
+        {
+            speed -= slowDownTime * Time.deltaTime;
+            speed = Mathf.Clamp(speed, 0, maxForwardSpeed);
+        }
+        else if (speed < 0) 
+        {
+            speed += slowDownTime * Time.deltaTime;
+            speed = Mathf.Clamp(speed, maxReverseSpeed, 0);
         }
 
-        //speed -= slowDownTime * Time.deltaTime;
-
-        speed = Mathf.Clamp(speed -= slowDownTime * Time.deltaTime, 0, maxSpeed);
+        //speed = Mathf.Clamp(speed -= slowDownTime * Time.deltaTime, maxReverseSpeed, masForwardSpeed);
 
         transform.Translate(0, speed * Time.deltaTime, 0);
 
@@ -63,6 +81,6 @@ public class PlayerMovement : MonoBehaviour {
 
     public void EnableDamageState()
     {
-        maxSpeed = maxSpeed * damageStateReductionRate;
+        maxForwardSpeed = maxForwardSpeed * damageStateReductionRate;
     }
 }
