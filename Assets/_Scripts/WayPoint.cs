@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
+using UnityEditor.UIElements;
 using UnityEngine;
 
 public class WayPoint : MonoBehaviour
@@ -12,7 +13,6 @@ public class WayPoint : MonoBehaviour
     private List<Vector2> waypoints = new List<Vector2>();
     private float verticalPos;
     private float horizontalPos;
-    private Vector2 origin = new Vector2(0,0);
 
     private void Awake()
     {
@@ -24,7 +24,7 @@ public class WayPoint : MonoBehaviour
             for (float j = worldSize.y; j >= -worldSize.y; j = j - verticalPos)
             {
                 Vector2 newWaypoint = new Vector2(i, j);
-                if (newWaypoint != origin)
+                if (newWaypoint.magnitude >1)
                 {
                     startingWaypoints.Add(newWaypoint);
                 }

@@ -45,78 +45,37 @@ public class Shield : MonoBehaviour
         {
             animator.SetBool("ShowShield", false);
         }
-            //if (timer > 0 && flashing == false)
-            //{
-            //    timer -= Time.deltaTime;
-            //    spriteRend.enabled = true;
-            //}
 
-            //if(timer <= 0 && flashing == false)
-            //{
-            //    spriteRend.enabled = false;
-            //}
-
-            //if(flashing == true)
-            //{
-            //    timer -= Time.deltaTime;
-
-            //    if (timer > .4f)
-            //    {
-            //        spriteRend.enabled = true;
-            //    }
-
-            //    if(timer <=.4f && timer > .3f)
-            //    {
-            //        spriteRend.enabled = false;
-            //    }
-
-            //    if (timer <= .3f && timer > .2f)
-            //    {
-            //        spriteRend.enabled = true;
-            //    }
-
-            //    if (timer <= .2f && timer > .1f)
-            //    {
-            //        spriteRend.enabled = false;
-            //    }
-
-            //    if (timer <= .1f && timer > 0)
-            //    {
-            //        spriteRend.enabled = true;
-            //    }
-
-            //    if (timer <= 0)
-            //    {
-            //        spriteRend.enabled = false;
-            //        flashing = false;
-            //    }
-            //}
-
-            if (!shieldEnabled)
+        if (!shieldEnabled || shieldStrength < 0)
         {
             circleColl.enabled = false;
         }
+        else { circleColl.enabled = true; }
 
         shieldSlider.value = shieldStrength;
 	}
 
+    void OnTriggerEnter2D(Collider2D collision)
+    {
+        Debug.Log("shield log");
+    }
+
     public void DrainShield(int hit)
     {
-            shieldStrength -= hit;
+        shieldStrength -= hit;
         Debug.Log("shield strength " + shieldStrength);
         animator.SetBool("ShowShield", true);
 
-            if (shieldStrength > 0)
-            {
-                timer = .5f;
-            }
+        if (shieldStrength > 0)
+        {
+            timer = .5f;
+        }
 
-            else
-            {
-                timer = .7f;
-                //flashing = true;
-                shieldStrength -= shieldDownTime;
-            } 
+        else
+        {
+            timer = .7f;
+            shieldStrength -= shieldDownTime;
+        } 
     }
 
     public void PowerShield()

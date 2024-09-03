@@ -30,7 +30,7 @@ public class PlayerDamage : MonoBehaviour
         {
             damage = damageMan.hitPoints;
 
-            if (shield.shieldEnabled)
+            if (shield.shieldEnabled && shield.GetShieldStrength() > 0)
             {
                 if (shield.GetShieldStrength() > damage)
                 {
@@ -48,7 +48,7 @@ public class PlayerDamage : MonoBehaviour
             if (rockTags.Contains(collision.gameObject.tag))
             {
                 rockMove = collision.gameObject.GetComponent<RockMovement>();
-                rockMove.DestroyMe();
+                //rockMove.DestroyMe();
             }
 
             if (collision.tag == "Enemy")
@@ -69,36 +69,38 @@ public class PlayerDamage : MonoBehaviour
     {
         health -= damage;
 
-        if (health <= .85 * hitPoints)
+        if (health <= .85 * hitPoints && health >.7 * hitPoints)
         {
             print("damage shields");
             shield.EnableDamageState();
         }
-        else if (health <= .7 * hitPoints)
+        else if (health <= .7 * hitPoints && health > .55 * hitPoints)
         {
             print("damage guns");
             playerFire.EnableDamageState();
         }
-        else if (health <= .55 * hitPoints)
+        else if (health <= .55 * hitPoints && health > .4 * hitPoints)
         {
             print("damage drive");
             playerMovement.EnableDamageState();
         }
-        else if (health <= .4 * hitPoints)
+        else if (health <= .4 * hitPoints && health > .25 * hitPoints)
         {
             print("disable shields");
             shield.enabled = false;
         }
-        else if (health <= .25 * hitPoints)
+        else if (health <= .25 * hitPoints && health > .1 * hitPoints)
         {
             print("disable wing gun 1");
             playerFire.DisableGun(1);
         }
-        else if (health <= .1 * hitPoints)
+        else if (health <= .1 * hitPoints && health > 0)
         {
             print("disable wing gun 2");
             playerFire.DisableGun(1);
         }
+
+        Debug.Log(health);
         
         if (health <= 0)
         {

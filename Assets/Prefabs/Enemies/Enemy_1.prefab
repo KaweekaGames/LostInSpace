@@ -25,13 +25,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1066771606185370}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0.021814892, w: 0.999762}
   m_LocalPosition: {x: 1.5, y: 1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4139722823761800}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 2.5}
 --- !u!114 &114893829064031830
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -44,10 +44,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 04f600b5aff6cab409eb70e663616478, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  range: 2
+  range: 7
   mask:
     serializedVersion: 2
-    m_Bits: 512
+    m_Bits: 8
 --- !u!1 &1070643642103328
 GameObject:
   m_ObjectHideFlags: 0
@@ -172,6 +172,7 @@ MonoBehaviour:
   - MediumRock4
   - MediumRock5
   attackDistance: 30
+  hasStartingLocation: 0
 --- !u!114 &114644216006072192
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -291,13 +292,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1266338285265230}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: -0.021814799, w: 0.999762}
   m_LocalPosition: {x: -1.5, y: 1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4139722823761800}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -2.5}
 --- !u!114 &114837725588567024
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -310,10 +311,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 04f600b5aff6cab409eb70e663616478, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  range: 2
+  range: 7
   mask:
     serializedVersion: 2
-    m_Bits: 512
+    m_Bits: 8
 --- !u!1 &1767725179042204
 GameObject:
   m_ObjectHideFlags: 0

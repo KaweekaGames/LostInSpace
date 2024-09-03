@@ -160,6 +160,7 @@ GameObject:
   - component: {fileID: 50457678195321500}
   - component: {fileID: 114366248464094448}
   - component: {fileID: 68331702069476714}
+  - component: {fileID: 8333758159998936443}
   m_Layer: 0
   m_Name: Enemy_Queen
   m_TagString: Enemy
@@ -252,13 +253,12 @@ MonoBehaviour:
   speed: 1.5
   hasObstacle: 0
   amountDebris: 0
-  debris1: {fileID: 0}
-  debris2: {fileID: 0}
-  debris3: {fileID: 0}
-  exploder: {fileID: 0}
+  debris1: {fileID: 3543420043823895458, guid: fc136b9d06fa17c4facb7296a859b2ed, type: 3}
+  debris2: {fileID: 3543420043823895458, guid: fc136b9d06fa17c4facb7296a859b2ed, type: 3}
+  debris3: {fileID: 1121261412127438, guid: f1fc75189b33cfb44adf049aaa3ace12, type: 3}
+  exploder: {fileID: 1629170870876472, guid: a8034f792d51927419c938e51a90172e, type: 3}
   rockTags: []
   attackDistance: 30
-  waypoint: {fileID: 0}
   hasStartingLocation: 1
 --- !u!114 &114585276344363710
 MonoBehaviour:
@@ -277,7 +277,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 0
   bulletTimer: 0
-  objectTag: 
+  objectTag: EnemyBullet
 --- !u!50 &50457678195321500
 Rigidbody2D:
   serializedVersion: 4
@@ -387,3 +387,17 @@ EdgeCollider2D:
   m_AdjacentEndPoint: {x: 0, y: 0}
   m_UseAdjacentStartPoint: 0
   m_UseAdjacentEndPoint: 0
+--- !u!114 &8333758159998936443
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1967697851295322}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ec1e292533e42544a4daa768b252359, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hitPoints: 100
+  health: 100

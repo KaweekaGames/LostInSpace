@@ -19,6 +19,8 @@ public class PlayerMovement : MonoBehaviour {
     private float speed = 0;
     private float thrustTimer = 0;
     private Vector2 startingPositon;
+    private bool rightSideBlocked = false;
+    private bool leftSideBlocked = false;
 
     private void Start()
     {
@@ -29,10 +31,28 @@ public class PlayerMovement : MonoBehaviour {
     // Update is called once per frame
     void Update ()
     {
+        //if (rightSideBlocked || leftSideBlocked) 
+        //{
+        //    if (speed > 0)
+        //    {
+        //        speed = 0; 
+        //    }
+        //}
+        
         //Rotation Control
         float zRotation = gameInput.GetRotation();
 
         zRotation = -zRotation;
+
+        if (rightSideBlocked && zRotation < 0) 
+        {
+            zRotation = 0;
+        }
+
+        if (leftSideBlocked && zRotation > 0)
+        {
+            zRotation = 0;
+        }
 
         transform.Rotate(0, 0, zRotation * rotationSpeed * Time.deltaTime);
 
@@ -83,4 +103,29 @@ public class PlayerMovement : MonoBehaviour {
     {
         maxForwardSpeed = maxForwardSpeed * damageStateReductionRate;
     }
-}
+
+    public void BlockPath(int direction)
+    {
+        if (direction == 1)
+        {
+            rightSideBlocked = true;
+        }
+        else if (direction == 2)
+        {
+            leftSideBlocked = true;
+        }
+    }
+
+        public void UnBlockPath(int direction)
+        {
+            if (direction == 1)
+            {
+                rightSideBlocked = false;
+            }
+            else if (direction == 2)
+            {
+                leftSideBlocked = false;
+            }
+        }
+
+    }

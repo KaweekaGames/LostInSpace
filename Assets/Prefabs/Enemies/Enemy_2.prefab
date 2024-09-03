@@ -44,10 +44,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 04f600b5aff6cab409eb70e663616478, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  range: 2.5
+  range: 7
   mask:
     serializedVersion: 2
-    m_Bits: 512
+    m_Bits: 8
 --- !u!1 &1265061073256026
 GameObject:
   m_ObjectHideFlags: 0
@@ -92,10 +92,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 04f600b5aff6cab409eb70e663616478, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  range: 2.5
+  range: 7
   mask:
     serializedVersion: 2
-    m_Bits: 512
+    m_Bits: 8
 --- !u!1 &1464971028769258
 GameObject:
   m_ObjectHideFlags: 0
@@ -309,7 +309,6 @@ MonoBehaviour:
   exploder: {fileID: 1992611114045386, guid: 2b830d99992f98c4ea4fd8ce0ab2efb1, type: 3}
   rockTags: []
   attackDistance: 30
-  waypoint: {fileID: 0}
   hasStartingLocation: 1
 --- !u!114 &114083844658503658
 MonoBehaviour:
