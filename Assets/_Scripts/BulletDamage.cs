@@ -15,5 +15,9 @@ public class BulletDamage : MonoBehaviour
             damageScript.Damage(power);
             gameObject.SetActive(false);
         }
+        else if (collision.tag != "Player")
+        {
+            gameObject.SetActive(false);
+        }
     }
 }

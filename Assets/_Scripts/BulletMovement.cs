@@ -5,11 +5,10 @@ using UnityEngine;
 public class BulletMovement : MonoBehaviour
 {
 
-    public float speed;
-    public float deathTimer;
+    [SerializeField] private float speed;
+    [SerializeField] private float deathTimer;
 
     private float countDown;
-    private PlayerMovement playerMov;
     private float newSpeed;
 
     void Awake()

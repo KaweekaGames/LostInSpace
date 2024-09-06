@@ -10,9 +10,10 @@ public class Shield : MonoBehaviour
     public CircleCollider2D circleColl;
     public bool shieldEnabled = true;
     public float shieldRecoverSpeed;
-    public Slider shieldSlider;
+    //public Slider shieldSlider;
     public float shieldDownTime =5f;
     public float shieldDamageRedutionRate;
+    public bool shieldDamaged = false;
     public Animator animator;
 
     private float timer = 0;
@@ -28,7 +29,7 @@ public class Shield : MonoBehaviour
 
     void Start()
     {
-        shieldSlider.maxValue = shieldStrengthMax;
+        //shieldSlider.maxValue = shieldStrengthMax;
         animator.SetBool("ShowShield", false);
     }
     // Update is called once per frame
@@ -52,7 +53,7 @@ public class Shield : MonoBehaviour
         }
         else { circleColl.enabled = true; }
 
-        shieldSlider.value = shieldStrength;
+        //shieldSlider.value = shieldStrength;
 	}
 
     void OnTriggerEnter2D(Collider2D collision)
@@ -95,5 +96,6 @@ public class Shield : MonoBehaviour
     {
         shieldStrengthMax = shieldStrengthMax * shieldDamageRedutionRate;
         shieldRecoverSpeed = shieldRecoverSpeed * shieldDamageRedutionRate;
+        shieldDamaged = true;
     }
 }

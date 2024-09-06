@@ -4,10 +4,11 @@ using UnityEngine;
 
 public class EnemyFire : MonoBehaviour
 {
-    public float range;
-    public LayerMask mask;
-    public float bulletTimer;
-    public string objectTag;
+    [SerializeField] private float range;
+    [SerializeField] private LayerMask mask;
+    [SerializeField] private float bulletTimer;
+    [SerializeField] private string objectTag;
+    [SerializeField] private Transform bulletFirePoint;
 
     private float countDown;
 
@@ -23,7 +24,7 @@ public class EnemyFire : MonoBehaviour
             if (countDown <= 0)
             {
                 GameObject bullet = ObjectPooler.SharedInstance.GetPooledObject(objectTag);
-                bullet.transform.position = transform.position;
+                bullet.transform.position = bulletFirePoint.position;
                 bullet.transform.rotation = transform.rotation;
                 bullet.SetActive(true);
 

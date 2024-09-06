@@ -8,10 +8,11 @@ public class PlayerFire : MonoBehaviour {
     public string objectTag;
     public List<GameObject> guns;
     public float heatCapacity;
-    public Slider heatSlider;
+    //public Slider heatSlider;
     public GameInput gameInput;
     public float fireTime = .5f;
     public float damageReductionRate = .5f;
+    public bool gunsDamaged = false;
 
     private float heatBuildUp = 0;
     private float fireTimeTimer = 0;
@@ -39,7 +40,7 @@ public class PlayerFire : MonoBehaviour {
             heatBuildUp -= Time.deltaTime; 
         }
 
-        heatSlider.value = Mathf.Lerp(heatSlider.value, Mathf.Clamp(heatBuildUp / heatCapacity, 0, 1), .07f);
+        //heatSlider.value = Mathf.Lerp(heatSlider.value, Mathf.Clamp(heatBuildUp / heatCapacity, 0, 1), .07f);
 
         if (fireTimeTimer > 0) 
         {
@@ -48,13 +49,15 @@ public class PlayerFire : MonoBehaviour {
 
 	}
 
-    public void DisableGun(int gun)
+    public void DisableGun()
     {
-       guns.RemoveAt(gun);
+       int rand = Random.Range(0, guns.Count);
+        guns.RemoveAt(rand);
     }
 
     public void EnableDamageState()
     {
         heatCapacity = heatCapacity * damageReductionRate;
+        gunsDamaged = true;
     }
 }

@@ -15,6 +15,7 @@ public class PlayerMovement : MonoBehaviour {
     public SpriteRenderer thrustSprite;
     public GameInput gameInput;
     public WayPoint waypoint;
+    public bool driveDamaged = false;
 
     private float speed = 0;
     private float thrustTimer = 0;
@@ -102,6 +103,7 @@ public class PlayerMovement : MonoBehaviour {
     public void EnableDamageState()
     {
         maxForwardSpeed = maxForwardSpeed * damageStateReductionRate;
+        driveDamaged = true;
     }
 
     public void BlockPath(int direction)
